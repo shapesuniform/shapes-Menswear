@@ -1,0 +1,205 @@
+/* ==========================================================================
+   SHAPES MAN — ATELIER ADMIN SUITE STYLES
+   ========================================================================== */
+
+:root {
+    --admin-bg: #0A0B0E;
+    --admin-surface: #12141A;
+    --admin-card: #181B22;
+    --admin-gold: #D4AF37;
+    --admin-gold-hover: #F3E5AB;
+    --admin-ivory: #F7F5F0;
+    --admin-grey: #8A8F9D;
+    --admin-border: rgba(212, 175, 55, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--admin-bg);
+    color: var(--admin-ivory);
+    line-height: 1.6;
+}
+
+.admin-header {
+    background: var(--admin-surface);
+    border-bottom: 1px solid var(--admin-border);
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    color: var(--admin-ivory);
+}
+
+.admin-header h1 span {
+    color: var(--admin-gold);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    display: block;
+}
+
+.admin-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: calc(100vh - 80px);
+}
+
+.admin-sidebar {
+    background: var(--admin-surface);
+    border-right: 1px solid var(--admin-border);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.admin-nav-item {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--admin-grey);
+    padding: 0.8rem 1.2rem;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.admin-nav-item:hover, .admin-nav-item.active {
+    background: var(--admin-card);
+    border-color: var(--admin-border);
+    color: var(--admin-gold);
+}
+
+.admin-content {
+    padding: 2.5rem;
+    overflow-y: auto;
+}
+
+.admin-section {
+    display: none;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+.admin-card {
+    background: var(--admin-card);
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.admin-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--admin-gold);
+    margin-bottom: 1.5rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.admin-table th, .admin-table td {
+    border: 1px solid var(--admin-border);
+    padding: 12px 14px;
+    text-align: left;
+}
+
+.admin-table th {
+    background: var(--admin-surface);
+    color: var(--admin-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.admin-table tr:hover {
+    background: rgba(212, 175, 55, 0.04);
+}
+
+.admin-btn {
+    background: var(--admin-gold);
+    color: #000;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.admin-btn:hover {
+    background: var(--admin-gold-hover);
+}
+
+.admin-btn-outline {
+    background: transparent;
+    border: 1px solid var(--admin-gold);
+    color: var(--admin-gold);
+}
+
+.admin-btn-outline:hover {
+    background: var(--admin-gold);
+    color: #000;
+}
+
+.admin-btn-danger {
+    background: #ff5252;
+    color: #fff;
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.admin-input-group {
+    margin-bottom: 1rem;
+}
+
+.admin-input-group label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--admin-grey);
+    margin-bottom: 4px;
+}
+
+.admin-input-group input, .admin-input-group select, .admin-input-group textarea {
+    width: 100%;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    color: var(--admin-ivory);
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    outline: none;
+}
+
+.admin-input-group input:focus, .admin-input-group textarea:focus {
+    border-color: var(--admin-gold);
+}

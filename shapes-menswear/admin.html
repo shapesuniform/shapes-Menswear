@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAPES MAN · Atelier Merchant Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <h1>
+            SHAPES MAN
+            <span>ATELIER MERCHANT BACKOFFICE</span>
+        </h1>
+        <div>
+            <a href="index.html" target="_blank" class="admin-btn admin-btn-outline"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Storefront</a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <button class="admin-nav-item active" data-target="section-dashboard">
+                <i class="fa-solid fa-chart-pie"></i> Dashboard Metrics
+            </button>
+            <button class="admin-nav-item" data-target="section-products">
+                <i class="fa-solid fa-shirt"></i> Garment Catalog
+            </button>
+            <button class="admin-nav-item" data-target="section-add-product">
+                <i class="fa-solid fa-plus-circle"></i> Add New Garment
+            </button>
+            <button class="admin-nav-item" data-target="section-orders">
+                <i class="fa-solid fa-truck-ramp-box"></i> Bespoke Orders
+            </button>
+        </aside>
+
+        <main class="admin-content">
+            <!-- Dashboard Metrics -->
+            <section class="admin-section active" id="section-dashboard">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div class="admin-card" style="margin-bottom: 0;">
+                        <h4 style="font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--admin-grey);">Active Catalog Items</h4>
+                        <div id="metric-products-count" style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--admin-gold); margin-top: 4px;">0</div>
+                    </div>
+                    <div class="admin-card" style="margin-bottom: 0;">
+                        <h4 style="font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--admin-grey);">Total Bespoke Orders</h4>
+                        <div id="metric-orders-count" style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--admin-ivory); margin-top: 4px;">0</div>
+                    </div>
+                    <div class="admin-card" style="margin-bottom: 0;">
+                        <h4 style="font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--admin-grey);">Total Order Volume</h4>
+                        <div id="metric-revenue" style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--admin-gold); margin-top: 4px;">₹ 0</div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h2>Store Management Actions</h2>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="admin-btn admin-btn-outline" onclick="resetDefaultCatalog()"><i class="fa-solid fa-rotate-left"></i> Restore Default Garments</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Table -->
+            <section class="admin-section" id="section-products">
+                <div class="admin-card">
+                    <h2>Bespoke Shirt &amp; Garment Catalog</h2>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Garment Name &amp; Spec</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-products-tbody">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Add Product Form -->
+            <section class="admin-section" id="section-add-product">
+                <div class="admin-card">
+                    <h2>Tailor New Garment for Catalog</h2>
+                    <form id="add-product-form" onsubmit="addProduct(event)">
+                        <div class="admin-form-grid">
+                            <div class="admin-input-group">
+                                <label for="p-title">Garment Title</label>
+                                <input type="text" id="p-title" required placeholder="e.g. The Kensington Oxford Sky Blue Shirt">
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="p-category">Category</label>
+                                <select id="p-category">
+                                    <option value="Royal Giza Cotton">Royal Giza Cotton</option>
+                                    <option value="Pure Linen">Pure Linen</option>
+                                    <option value="Handblock Prints">Handblock Prints</option>
+                                    <option value="Festive & Evening">Festive & Evening</option>
+                                </select>
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="p-price">Price (INR ₹)</label>
+                                <input type="number" id="p-price" required value="7490">
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="p-inventory">Inventory Units</label>
+                                <input type="number" id="p-inventory" required value="12">
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="p-image">Image File / URL</label>
+                                <select id="p-image">
+                                    <option value="shirt_white_giza.webp">White 160s Giza Twill</option>
+                                    <option value="shirt_sage_linen.webp">Sage French Flax Linen</option>
+                                    <option value="shirt_indigo_handblock.webp">Indigo Artisanal Blockprint</option>
+                                    <option value="shirt_black_festive.webp">Black Raw Silk Bandhgala</option>
+                                    <option value="shirt_sand_linen.webp">Sand Organic Linen</option>
+                                </select>
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="p-fabric">Fabric Specification</label>
+                                <input type="text" id="p-fabric" required placeholder="e.g. 140s 2-Ply Royal Oxford Giza Cotton">
+                            </div>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="p-desc">Editorial Description</label>
+                            <textarea id="p-desc" rows="3" required placeholder="Description of the cut, silhouette and comfort..."></textarea>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="p-craft">Craftsmanship &amp; Care Details</label>
+                            <input type="text" id="p-craft" required placeholder="e.g. Mother-of-pearl buttons, split yoke. Gentle wash.">
+                        </div>
+                        <button type="submit" class="admin-btn" style="margin-top: 1rem;">PUBLISH GARMENT TO STORE</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Orders Table -->
+            <section class="admin-section" id="section-orders">
+                <div class="admin-card">
+                    <h2>Bespoke Client Orders</h2>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Client Details</th>
+                                <th>Items &amp; Specs</th>
+                                <th>Total</th>
+                                <th>Status Workflow</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-orders-tbody">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

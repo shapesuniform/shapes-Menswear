@@ -1,0 +1,11 @@
+{
+  "name": "shapes-menswear-luxury",
+  "version": "1.0.0",
+  "description": "Bespoke Luxury Men's Fashion & Handcrafted Shirts Atelier - SHAPES MAN",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 8085 -c-1",
+    "start": "npx -y http-server -p 8085 -c-1"
+  },
+  "dependencies": {}
+}

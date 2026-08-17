@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Visit Mumbai Atelier &amp; Contact Concierge | SHAPES MAN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .contact-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+        .contact-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 2.5rem;
+        }
+        .contact-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+            font-size: 13px;
+            color: var(--ivory-muted);
+        }
+        .contact-icon {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="luxury-header" style="background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle);">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Back to Atelier</a>
+            </div>
+            <div class="nav-center">
+                <a href="index.html" class="brand-logo">
+                    <span class="logo-main">SHAPES</span>
+                    <span class="logo-sub">MAN · MUMBAI FLAGSHIP</span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="account.html" class="nav-link"><i class="fa-solid fa-user-tie"></i> Profile</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact-container">
+        <div class="section-header">
+            <span class="sub-title">Private Consultations</span>
+            <h1 class="section-title">VISIT OUR MUMBAI ATELIER</h1>
+            <div class="divider-gold"></div>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Boutique Details -->
+            <div class="contact-card">
+                <h3><i class="fa-solid fa-store"></i> Chembur Flagship Showroom</h3>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot contact-icon"></i>
+                    <div>
+                        <strong>SHAPES BOUTIQUE &amp; ATELIER</strong><br>
+                        Shop No 4, Bus Stop, Ghatla Village Rd, Near Maitri Park, Basant Garden, Chembur, Mumbai, Maharashtra 400071
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-clock contact-icon"></i>
+                    <div>
+                        <strong>Hours of Distinction:</strong><br>
+                        Monday – Sunday: 11:00 AM – 8:00 PM IST
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone contact-icon"></i>
+                    <div>
+                        <strong>Direct Telephone:</strong><br>
+                        <a href="tel:+919833392756" style="color: var(--gold);">+91 98333 92756</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-whatsapp contact-icon" style="color: var(--whatsapp-green);"></i>
+                    <div>
+                        <strong>WhatsApp Concierge:</strong><br>
+                        <a href="https://wa.me/919833392756" target="_blank" style="color: var(--whatsapp-green);">Chat with Master Tailor (+91 98333 92756)</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope contact-icon"></i>
+                    <div>
+                        <strong>VIP Inquiries:</strong><br>
+                        <a href="mailto:shapesuniform@gmail.com" style="color: var(--gold);">shapesuniform@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointment Form -->
+            <div class="contact-card">
+                <h3><i class="fa-solid fa-calendar-check"></i> Book Private Fitting</h3>
+                <form id="appointment-form" onsubmit="bookFitting(event)">
+                    <div class="input-field">
+                        <label for="ap-name">Full Name</label>
+                        <input type="text" id="ap-name" required placeholder="Lord Arthur Hastings">
+                    </div>
+                    <div class="input-field">
+                        <label for="ap-phone">Contact Number</label>
+                        <input type="tel" id="ap-phone" required placeholder="+91 98333 92756">
+                    </div>
+                    <div class="input-field">
+                        <label for="ap-date">Preferred Date &amp; Time</label>
+                        <input type="datetime-local" id="ap-date" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="ap-interest">Collection of Interest</label>
+                        <select id="ap-interest">
+                            <option value="160s Egyptian Giza Cotton">160s Egyptian Giza Formal Shirts</option>
+                            <option value="French Flax Linen">Pure French Flax Linen Shirts</option>
+                            <option value="Festive Raw Silk">Festive Raw Silk Bandhgalas</option>
+                            <option value="Full Wardrobe Consultation">Bespoke Full Wardrobe Consultation</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="checkout-btn" style="margin-top: 1rem;">CONFIRM APPOINTMENT</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function bookFitting(e) {
+            e.preventDefault();
+            const name = document.getElementById("ap-name").value;
+            const date = document.getElementById("ap-date").value;
+            const interest = document.getElementById("ap-interest").value;
+
+            const msg = `*SHAPES MAN · PRIVATE FITTING APPOINTMENT*\n*Client:* ${name}\n*Preferred Time:* ${date}\n*Interest:* ${interest}\n\n_Please confirm my fitting session at the Chembur Atelier._`;
+            const waUrl = `https://wa.me/919833392756?text=${encodeURIComponent(msg)}`;
+            window.open(waUrl, "_blank");
+        }
+    </script>
+</body>
+</html>
